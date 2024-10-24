@@ -8,6 +8,7 @@ using namespace std;
 unsigned problem1();
 unsigned problem2();
 unsigned problem3();
+unsigned problem4();
 
 // Utility Functions
 bool isPrime(unsigned long long);
@@ -22,6 +23,8 @@ int main(int argc, char** argv)
 		cout << problem2();
 	if (!strcmp(argv[1], "3"))
 		cout << problem3();
+	if (!strcmp(argv[1], "4"))
+		cout << problem4();
 
 	return 0;
 }
@@ -71,6 +74,21 @@ unsigned problem3()
 	}
 
 	return max;
+}
+
+unsigned problem4()
+{
+	unsigned prod = 1;
+
+	for (int i = 999; i > 99; i--)
+	{
+		for (int j = 999; j > 99 && j * i > prod; j--)
+		{
+			if (isPalindromic(to_string(j * i)))
+				prod = j * i;
+		}
+	}
+	return prod;
 }
 
 bool isPrime(unsigned long long num)
