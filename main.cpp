@@ -9,6 +9,7 @@ unsigned problem1();
 unsigned problem2();
 unsigned problem3();
 unsigned problem4();
+unsigned problem5();
 
 // Utility Functions
 bool isPrime(unsigned long long);
@@ -25,6 +26,8 @@ int main(int argc, char** argv)
 		cout << problem3();
 	if (!strcmp(argv[1], "4"))
 		cout << problem4();
+	if (!strcmp(argv[1], "5"))
+		cout << problem5();
 
 	return 0;
 }
@@ -86,6 +89,27 @@ unsigned problem4()
 		{
 			if (isPalindromic(to_string(j * i)))
 				prod = j * i;
+		}
+	}
+	return prod;
+}
+
+unsigned problem5()
+{
+	int factors[] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	unsigned prod = 1;
+	for (int i = 0; i < 10; i++)
+		prod *= factors[i];
+	
+
+	for (int i = 20; i < prod; i += 20)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (i % factors[j])
+				break;
+			if (j == 9)
+				return i;
 		}
 	}
 	return prod;
