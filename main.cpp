@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <cmath>
+#include <string>
 using namespace std;
 
 // Problem Solving Functions
@@ -10,9 +11,11 @@ unsigned problem3();
 
 // Utility Functions
 bool isPrime(unsigned long long);
+bool isPalindromic(string);
 
 int main(int argc, char** argv)
 {
+
 	if (!strcmp(argv[1], "1"))
 		cout << problem1();
 	if (!strcmp(argv[1], "2"))
@@ -78,6 +81,17 @@ bool isPrime(unsigned long long num)
 	for (int i = 2; i < sqrt(num) + 1; i++)
 	{
 		if (!(num % i))
+			return false;
+	}
+
+	return true;
+}
+
+bool isPalindromic(string str)
+{
+	for (int i = 0; i < str.length() / 2; i++)
+	{
+		if (str[i] != str[str.length() - i - 1])
 			return false;
 	}
 
