@@ -10,6 +10,7 @@ unsigned problem2();
 unsigned problem3();
 unsigned problem4();
 unsigned problem5();
+unsigned problem6();
 
 // Utility Functions
 bool isPrime(unsigned long long);
@@ -28,6 +29,8 @@ int main(int argc, char** argv)
 		cout << problem4();
 	if (!strcmp(argv[1], "5"))
 		cout << problem5();
+	if (!strcmp(argv[1], "6"))
+		cout << problem6();
 
 	return 0;
 }
@@ -113,6 +116,17 @@ unsigned problem5()
 		}
 	}
 	return prod;
+}
+
+unsigned problem6()
+{
+	// Uses identites of finite sums
+	// Sum of n natural numbers: n(n+1)/2
+	// Sum of the first n squares: n(n+1)(2n+1)/6
+
+	unsigned int n = 100;
+	unsigned diff = pow(n, 4) / 4 + pow(n, 3) / 6 - pow(n, 2) / 4 - n / 6;
+	return diff;
 }
 
 bool isPrime(unsigned long long num)
