@@ -11,6 +11,7 @@ unsigned problem3();
 unsigned problem4();
 unsigned problem5();
 unsigned problem6();
+unsigned problem7();
 
 // Utility Functions
 bool isPrime(unsigned long long);
@@ -31,6 +32,8 @@ int main(int argc, char** argv)
 		cout << problem5();
 	if (!strcmp(argv[1], "6"))
 		cout << problem6();
+	if (!strcmp(argv[1], "7"))
+		cout << problem7();
 
 	return 0;
 }
@@ -127,6 +130,18 @@ unsigned problem6()
 	unsigned int n = 100;
 	unsigned diff = pow(n, 4) / 4 + pow(n, 3) / 6 - pow(n, 2) / 4 - n / 6;
 	return diff;
+}
+
+unsigned problem7()
+{
+	unsigned long long num = 13;
+	for (short i = 6; i < 10001; i++)
+	{
+		num += 2;
+		while (!isPrime(num))
+			num += 2;
+	}
+	return num;
 }
 
 bool isPrime(unsigned long long num)
